@@ -10,6 +10,7 @@
 <head>
     <title>Eliminar paciente</title>
     <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="shortcut icon" href="iconoHospital.png">
 </head>
 <body>
 <div class="container">

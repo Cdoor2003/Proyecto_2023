@@ -14,8 +14,8 @@ import static org.jooq.impl.DSL.table;
 
 public class ConsultaDAO {
     public boolean agendarConsulta(DSLContext query, ConsultaMedica consultaMedica){
-        Date fecha = consultaMedica.getFecha();
-        Time hora = consultaMedica.getHora();
+        String fecha = consultaMedica.getFecha();
+        String hora = consultaMedica.getHora();
         String rutProfesional = consultaMedica.getRutProfesional();
         Table consultaTabla = table(DSL.name("consultaMedica"));
         Field[] columnas = consultaTabla.fields(
@@ -34,13 +34,13 @@ public class ConsultaDAO {
         return results==1;
     }
     public boolean eliminarConsulta(DSLContext query,ConsultaMedica consultaMedica){
-        Date fecha = consultaMedica.getFecha();
-        Time hora = consultaMedica.getHora();
+        String fecha = consultaMedica.getFecha();
+        String hora = consultaMedica.getHora();
         int result = 0;
         try {
             result = query.deleteFrom(
                             DSL.table("consultaMedica"))
-                    .where(DSL.field("Hora").eq(hora))
+                    .where(DSL.field("Hora").eq(hora)).and(DSL.field("Fecha").eq(fecha))
                     .execute();
         }catch (Exception e){
             System.out.println(e);

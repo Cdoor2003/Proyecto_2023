@@ -3,6 +3,7 @@ package model;
 import model.data.DBConnector;
 import model.data.dao.PacienteDAO;
 import org.jooq.DSLContext;
+import org.jooq.Result;
 import org.jooq.impl.DSL;
 
 import java.sql.Connection;
@@ -70,5 +71,10 @@ public class Paciente {
         Connection connection = DBConnector.connection("cesfam","root","");
         DSLContext query = DSL.using(connection);
         return new PacienteDAO().eliminarPaciente(query,this);
+    }
+    public Result obtenerPacientes(){
+        Connection connection = DBConnector.connection("cesfam","root","");
+        DSLContext query = DSL.using(connection);
+        return new PacienteDAO().obtenerPacientes(query);
     }
 }

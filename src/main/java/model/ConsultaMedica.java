@@ -2,7 +2,6 @@ package model;
 
 import model.data.DBConnector;
 import model.data.dao.ConsultaDAO;
-import model.data.dao.PacienteDAO;
 import org.jooq.DSLContext;
 import org.jooq.impl.DSL;
 
@@ -11,29 +10,29 @@ import java.sql.Time;
 import java.util.Date;
 
 public class ConsultaMedica {
-    private Date fecha;
-    private Time hora;
+    private String fecha;
+    private String hora;
     private String rutProfesional;
 
-    public ConsultaMedica(Date fecha, Time hora, String rutProfesional) {
+    public ConsultaMedica(String fecha, String hora, String rutProfesional) {
         this.fecha = fecha;
         this.hora = hora;
         this.rutProfesional = rutProfesional;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 

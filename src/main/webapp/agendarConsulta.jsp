@@ -1,20 +1,20 @@
 <%--
   Created by IntelliJ IDEA.
   User: dorde
-  Date: 03-07-2023
-  Time: 12:19
+  Date: 05-07-2023
+  Time: 22:31
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="es">
 <head>
-    <title>Despedir funcionario</title>
+    <title>Agendar consulta</title>
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <link rel="shortcut icon" href="iconoHospital.png">
 </head>
 <body>
 <div class="container">
-    <h4>Despedir funcionario</h4>
+    <h4>Agendar Consulta</h4>
     <%
         String mensaje = (String) request.getAttribute("respuesta");
         if (mensaje != null && !mensaje.isEmpty()) {
@@ -23,14 +23,22 @@
     <%
         }
     %>
-    <form action="despedirProfesional" method="post">
+    <form action="agendarConsulta" method="post">
+        <div class="iniciar">
+            <input name="fecha" type="date" required>
+            <label>Fecha</label>
+        </div>
+        <div class="iniciar">
+            <input name="hora" type="time" required>
+            <label>Hora</label>
+        </div>
         <div class="iniciar">
             <input name="rutProfesional" type="text" maxlength="12" required>
-            <label>Rut profesional</label>
+            <label>Rut del profesional</label>
         </div>
-        <input type="submit" value="Despedir funcionario">
+        <input type="submit" value="Agendar">
         <div class="registrar">
-            <a href="menuDirector.jsp">Salir</a>
+            <a href="menuPaciente.jsp">Salir</a>
         </div>
     </form>
 </div>

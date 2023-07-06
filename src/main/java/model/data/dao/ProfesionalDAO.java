@@ -1,9 +1,9 @@
 package model.data.dao;
 
-import model.Paciente;
 import model.Profesional;
 import org.jooq.DSLContext;
 import org.jooq.Field;
+import org.jooq.Result;
 import org.jooq.Table;
 import org.jooq.impl.DSL;
 
@@ -32,10 +32,10 @@ public class ProfesionalDAO {
         int results = 0;
         try {
             results = query.insertInto(profesionalTabla,columnas[0],columnas[1],columnas[2],columnas[3],columnas[4],columnas[5],columnas[6],columnas[7])
-                    .values(nombre,apellido,rut,telefono,email,profesion,tipoContrato,contraseña)
+                    .values(nombre,apellido,rut,profesion,tipoContrato,email,contraseña,telefono)
                     .execute();
         }catch (Exception e){
-
+            e.printStackTrace();
         }
         return results==1;
     }
@@ -51,5 +51,9 @@ public class ProfesionalDAO {
             System.out.println(e);
         }
         return result == 1;
+    }
+    public Result obtenerProfesionales(DSLContext query){
+        Result result = query.select().from(DSL.table("profesional")).fetch();
+        return result;
     }
 }
