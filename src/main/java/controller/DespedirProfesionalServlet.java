@@ -15,7 +15,7 @@ public class DespedirProfesionalServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String rutProfesional = req.getParameter("rutProfesional");
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/despedirProfesional.jsp");
-        Profesional profesional = new Profesional("","",rutProfesional,Integer.parseInt(""),"","","","");
+        Profesional profesional = new Profesional("","",rutProfesional,0,"","","","");
         if (!rutProfesional.isEmpty()){
             if (profesional.despedirProfesional()){
                 req.setAttribute("respuesta","Se ha despedido correctamente al profesional");
